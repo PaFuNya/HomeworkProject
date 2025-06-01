@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p>函数的进阶</p>
+    <p>函数表达式：将声明的函数值赋给一个变量，通过变量完成函数的调用和参数的传递</p>
+    <script>
+        document.write(sum(1,2)+"<br>")
+        function sum(a,b){
+            return a+b
+        }
+
+        var sum2=function(a,b){
+            return a+b
+        }
+        document.write(sum2(5,2))
+    </script>
+<p>回调函数，指的是一个函数A作为参数传递给一个函数B，然后B的函数体内在运行结果</p>
+    <script>
+        function cal(a,b,fn){
+            return fn(a,b)
+        }
+        var result=cal(7,9,function(a,b){
+            return a+b
+        })
+        document.write(result)
+    </script>
+<p>两数相减和两数相除函数结果，用函数回调和数组</p>
+<script>
+    var result=cal(5,10,function (a,b){
+        return [a-b,a/b]
+    })
+    document.write(result)
+</script>
+<p>递归函数，指的是一个函数在其函数体内调用自己的过程</p>
+<p>函数阶乘</p>
+<script>
+    function f(n){
+        if(n==1){
+            return 1
+        }
+        return n*f(n-1)
+    }
+    document.write(f(5))
+</script>
+</body>
+</html>

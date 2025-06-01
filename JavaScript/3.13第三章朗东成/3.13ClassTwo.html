@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>continue用来跳过本次循环</p>
+    <p>break用来跳出循环</p>
+    <!-- <script>
+        for(var i=1;i<=5;i++){
+            if(i==3){
+                continue;
+            }
+            document.write(i+"<br>");
+        }
+    </script> -->
+    <p>查找字符串中是否包含你好，世界</p>
+    <script>
+        var str=prompt("请输入一个字符串");
+        var d = -1;
+        for (var i=0;i<str.length;i++) {
+            if (str[i]==="世") {
+                break;
+            }
+        }
+        document.write("字符世的位置是：" + i);
+    </script>
+</body>
+</html>

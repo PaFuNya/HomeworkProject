@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <body>
+        <h3>数组是数据的集合，本质上是一个对象</h3>
+        <p>1.添加和删除元素</p>
+        <p>移出数组arr[1,2,3,4,2,5,6,2,7,2]中与2相等的元素，并生成一个新数组，不改变原数组</p>
+        <script>
+            var arr=[1,2,3,4,2,5,6,2,7,2]
+            arr.push(9,8,7,10) //添加元素
+            arr.pop() //删除最后一个元素
+            var newArr=[]
+                for(var i=0;i<arr.length;i++){
+                    if(arr[i]!=2){
+                        newArr.push(arr[i])
+                    }
+                }
+                document.write("原数组："+arr+"<br>")
+                document.write("新数组："+newArr+"<br>")
+        </script>
+
+        <p>2.数组的排序</p>
+        <script>
+            let arr1=[44,23,15,151,616,2524,23]
+            arr1.sort()
+            document.write("排序后的数组："+arr1+"<br>")//默认是按ASCII排序的
+            arr1.sort(function(a,b){return a-b}) //升序排列
+            document.write("升序排列："+arr1+"<br>")
+            arr1.sort(function(a,b){return b-a}) //降序排列
+            document.write("降序排列："+arr1+"<br>")
+        </script>
+
+        <p>数组索引indexOF的用法，返回某个元素在数组中的位置，如果不存在，返回-1</p>
+        <script>
+            var arr2=['苹果',"梨","梨","橘子","苹果"]
+            var newarr=[]
+            for(var i=0;i<arr2.length;i++){
+                if(newarr.indexOf(arr2[i])==-1){
+                    newarr.push(arr2[i])
+                }
+            }
+            document.write("原数组："+arr2+"<br>")
+            document.write("新数组："+newarr+"<br>")
+        </script>
+        <p>数组转字符串</p>
+        <script>
+            var arr2=['苹果',"梨","梨","橘子","苹果"]
+            var str=arr2.join("|") 
+            document.write(str)
+        </script>
+    </body>
+</head>
+</html>

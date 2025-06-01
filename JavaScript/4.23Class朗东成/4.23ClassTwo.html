@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4.23Class</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <p>事件三要素</p>
+    <p>事件源：触发事件的元素</p>
+    <p>事件类型:如单击事件</p>
+    <p>事件处理程序，事件发生后要执行的代码</p>
+
+    <button onclick="fn()">点我</button>
+    <!--或者-->
+    <button id="btn">点我</button>
+    <script>
+        var btn=document.getElementById("btn")
+        btn.onclick=function(){
+            alert("事件处理程序被执行了！")
+        }
+        function fn(){
+            alert("事件处理程序被执行了！")
+        }
+    </script>
+</body>

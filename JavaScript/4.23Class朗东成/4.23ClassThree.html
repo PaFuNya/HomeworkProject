@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4.23Class</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <button id="pic1">Miku!(上)</button>
+    <button id="pic2">Miku!(下)</button>
+    <br>
+    <img src="img/2.jpg" alt="鲜花" id="pic1" width="300" style="display:none" > 
+    <img src="img/3.jpg" alt="鲜花" id="pic2" width="300" style="display:none" >
+    <h3>操作元素</h3>
+    <p>操作元素的内容</p>
+    <script>
+        var pic1=document.querySelector("#pic1")
+        var pic2=document.querySelector("#pic2")
+        var img=document.querySelector("img")
+    </script>
+    <p>操作元素的属性</p>
+    
+ <script>
+    pic1.onclick=function(){
+        img.src="img/2.jpg"
+    }
+    pic2.onclick=function(){
+        img.src="img/3.jpg"
+    }
+ </script>
+ <p>操作元素的样式</p>
+ <script>
+    pic1.onclick=function(){
+        img.src='img/2.jpg'
+        pic1.style.color="red"
+        pic2.style.color="black"
+        img.style.display="block"
+        img.style.display="none"
+    }
+    pic2.onclick=function(){
+        img.src='img/3.jpg'
+        pic2.style.color="red"
+        pic1.style.color="black"
+        img.style.display="none"
+        img.style.display="block"
+    }
+ </script>
+</body>

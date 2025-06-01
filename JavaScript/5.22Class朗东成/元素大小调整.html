@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="keywords" content="元素, 大小, 调整">
+        <meta name="description" content="元素大小调整的示例">
+        <title>元素大小调整</title>
+        <link rel="stylesheet" href="../css/style.css">
+        <style>
+            .res{
+                width:200px;
+                height: 150px;
+                background-color: lightblue;
+                overflow:auto;
+                border:5px solid blue;
+                padding:20px;
+                transition: all 0.5s;
+                position: relative;
+            }
+            .resize-handle {
+                width: 15px;
+                height: 15px;
+                background: darkblue;
+                position: absolute;
+                right: 0;
+                bottom: 0;
+                cursor: nwse-resize;
+            }
+        </style>
+</head>
+<title>元素大小调整</title>
+<body>
+    <h2>元素大小调整</h2>
+    <div class="res" id="res">
+        调整我的大小看看变化
+        <div class="resize-handle"></div>
+        <script>
+            var res = document.getElementById('res');
+            var handle = document.querySelector('.resize-handle');
+            var isResizing = false;
+            var startX, startY, startWidth, startHeight;
+
+            handle.addEventListener('mousedown', function(e) {
+                isResizing = true;
+                startX = e.clientX;
+                startY = e.clientY;
+                startWidth = parseInt(document.defaultView.getComputedStyle(res).width, 10);
+                startHeight = parseInt(document.defaultView.getComputedStyle(res).height, 10);
+                e.preventDefault();
+            });
+
+            document.addEventListener('mousemove', function(e) {
+                if (!isResizing) return;
+                res.style.width = (startWidth + e.clientX - startX) + 'px';
+                res.style.height = (startHeight + e.clientY - startY) + 'px';
+            });
+
+            document.addEventListener('mouseup', function() {
+                isResizing = false;
+            });
+        </script>
+    </div>
+
+</body>

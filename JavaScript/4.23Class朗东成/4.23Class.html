@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4.23Class</title>
+    <link rel="stylesheet" href="styles.css">
+    <body>
+        <h3>js由三部分组成，基础语法，DOM.BOM</h3>
+        <p>DOM,BOMs属于webapi</p>
+        <p>DOM,文档对象接口，主要用来网页操作元素，如添加元素，删除元素等</p>
+
+        <p>文档，一个网页就是一个文档</p>
+        <p>元素:网页中所有的标签都是元素</p>
+        <p>节点:网页中的所有内容，文档树种都是节点（如元素节点，属性节点）</p>
+        <p>1.获取元素</p>
+        <p>通过getElemenById()获取元素</p>
+        <p>通过innerHTML来控制和修改元素</p>
+        <div id="box">Hello World</div>
+        <script>
+            var box=document.getElementById("box")
+            console.log(box) //获取元素
+            box.innerHTML='JavaScript你好'
+        </script>
+        <p>通过标签名,document.getElementTagName("标签名")获取</p>
+        <p>练习2.把苹果、梨、西瓜、樱桃改成红色</p>
+        <ul>
+            <li>Apple</li>
+            <li name="test">Banana</li>
+            <li name="test">Orange</li>
+            <li>BadApple!</li>
+        </ul>
+        <ul>
+            <li>Apple</li>
+            <li>Banana</li>
+            <li>Orange</li>
+            <li>BadApple!</li>
+        </ul>
+        <ol>
+            <li>White</li>
+            <li>Black</li>
+            <li>Red</li>
+        </ol>
+        <script>
+            var items=document.getElementsByTagName("ul")     
+            items[0].style.color='red' //获取第一个ul元素
+            // for(var i=0;i<items.length;i++){
+            //     items[i].style.color='red'
+            // }
+        </script>
+
+        <p>用过name名，document.getElementsByName("name")获取</p>
+        <p>练习3，把梨，西瓜改成绿色</p>
+        <script>
+            var list=document.getElementsByName("test")
+            list[0].style.color='green'
+            list[1].style.color='green'
+        </script>
+        <p>通过类名获取，document.getElementsByClassName()</p>
+        <p>通过选择器获取第一个元素，document.querySelector()</p>
+        <p>通过选择器获取全部，document.querySelectorAll()</p>
+        <p>#为id,"."为class,什么都没有就是标签</p>
+        <div class="aaa">Box</div>
+        <div class="box">Box</div>
+        <div id="nav">
+            <ul>
+                <li>首页</li>
+                <li>产品</li>
+            </ul>
+        </div>
+        <script>
+            document.getElementsByClassName("aaa")[0].style.color='red' //获取第一个类名为aaa的元素
+            document.getElementsByClassName("box")[0].style.color='blue' //获取第一个类名为box的元素
+            document.querySelector("#nav")//获取id为nav的元素
+            document.querySelectorAll(".aaa") //获取所有class=aaa的元素
+            document.querySelectorAll("div") //获取所有div标签
+        </script>
+    </body>
+</html>

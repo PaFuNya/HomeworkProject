@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>在js中,对象是一种数据类型,它是由属性和方法组成的一个集合</h3>
+    <h3>比如手机就是一个对象，手机的颜色，重量就是属性，手机可以打电话，发信息就是方法</h3>
+    <p>使用对象，属性名‘或’对象，方法名（）访问</p>
+    <h3>对象的创建</h3>
+    <p>利用字面量{  }创建</p>
+    <script>
+        //创建一个对象
+        var Obj={}
+        var Student={
+            name:"小明",age:20,sex:"男",
+            sayHello:function(){
+                document.write("hello")
+            },
+            sinsong:function(){
+                document.write("love")
+            },
+        }
+        Student.sayHello()
+        Student.sinsong()
+    </script>
+    <p>利用new关键字创建</p>
+    <script>
+        var Objct=new Object()
+        var Student=new Object()
+        Student.name="小明"
+        Student.age=20
+        Student.sex="男"
+        Student.sayHello=function(){
+            document.write("h123")
+        }
+        Student.sayHello()
+    </script>
+
+    <p>利用构造函数创建</p>
+    <script>
+        function Student(name,age,sex){
+            this.name=name
+            this.age=age
+            this.sex=sex
+            this.sayHello=function(){
+                document.write(this.name+"的年龄是"+this.age+"他的性别是"+this.sex+"你好<br>")
+            }
+        }
+        var student0=new Student("小明",20,"男")
+        var student1=new Student("小二",200,"男")
+        // 方法调用的两种方式：
+        // 1. 点表示法
+        student1.sayHello()
+        // 2. 方括号表示法
+        student1['sayHello']()
+        student0.sayHello()
+    </script>
+    <h3>对象的访问</h3>
+    <p>使用对象.属性名或对象.方法名</p>
+    <script>
+        document.write(student1.name+"<br>")
+        student1.sayHello()
+        student1['sayHello']()
+    </script>
+
+    <h3>对象的遍历</h3>
+    <p>for in 列出对象所有属性和方法</p>
+    <script>
+        for (var i in student0){
+            document.write(i,student0[i]+"<br>")
+        }
+    </script>
+    
+    <script>
+        var dog={
+            name:'可可',type:'阿拉斯加',age:5,color:"棕红色",
+            bark:function(){
+                document.write("汪汪汪")
+            },
+            wagitstail:function(){
+                document.write("摇尾巴")
+            }
+        }
+        dog.bark()
+        document.write("<br>")
+        dog.wagitstail()
+        // for (var i in dog){
+        //     document.write(i,dog[i]+"<br>")
+        // }
+    </script>
+    <p>利用构造函数创建对象，car,包含属性brand、model和year并添加一个方法start打印汽车启动了</p>
+    <script>
+        function car(brand,model,year){
+            this.brand=brand
+            this.model=model
+            this.year=year
+            this.start=function(){
+                document.write("品牌为"+this.model+"的，名字叫"+this.brand+"的坐骑启动了!")
+            }
+        }
+        var car1=new car("林楚涵","ChatGPT","2024")
+        var car2=new car("马宣义",'Map',"2023")
+        car1.start()
+        document.write("<br>")
+        car2.start()
+    </script>
+    <script>
+        
+    </script>
+</html>

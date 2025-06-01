@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>元素偏移量offset</title>
+        <link rel="stylesheet" href="../css/style.css">
+        <script src="../js/jquery-3.6.0.min.js"></script>
+        <script src="../js/offset.js"></script>
+        <style>
+            #box{
+                background-color: pink;
+                width:250px;
+                height:250px;
+                position:absolute;
+                top:100px;
+                left:50px;
+            }
+        </style>
+    </head>
+    <body>
+        <h3>元素偏移量offset</h3>
+        <p>主要获取元素的位置、大小</p>
+        <div id="box">
+            <script>
+                var box=document.querySelector("#box");
+                console.log(box.offsetWidth); //元素的宽度
+                console.log(box.offsetHeight); //元素的高度
+                console.log(box.offsetTop);//获取该元素网页上边的距离
+                console.log(box.offsetLeft);//获取该元素网页左边的距离
+                box.onclick=function(){
+                    box.style.left=box.offsetLeft+50+"px";
+                    
+                }
+            </script>
+        </div>
+    </body>

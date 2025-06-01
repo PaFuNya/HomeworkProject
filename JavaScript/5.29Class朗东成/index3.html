@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>布局示例</title>
+  <link rel="stylesheet" href="D:\Desktop\OHO\HTML\JS\5.29Class朗东成\css\animate.css" />
+  <style>
+    /* 全局 */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: linear-gradient(135deg, #e0f7ff, #ffffff);
+      /* 蓝白渐变背景 */
+      color: #001f3f;
+      /* 深蓝色字体 */
+      font-family: 'Segoe UI', sans-serif;
+      min-height: 100vh;
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+      text-shadow: 0 1px 3px rgba(0, 0, 0, 0.7);
+    }
+
+    a {
+      color: #007acc;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-shadow: 0 0 8px #66cfff;
+    }
+
+    /* 图片样式 */
+    .content img,
+    .block img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 12px;
+      /* 增大圆角半径 */
+      display: block;
+      margin: 12px auto;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+      /* 增强阴影效果 */
+      border: 2px solid rgba(255, 255, 255, 0.8);
+      /* 添加白色边框 */
+      transition: all 0.3s ease;
+      /* 添加过渡动画 */
+      position: relative;
+      overflow: hidden;
+      /* 确保遮罩不溢出 */
+    }
+
+    /* 图片遮罩效果 */
+    .content img::after,
+    .block img::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(to bottom,
+          rgba(0, 0, 0, 0.1) 0%,
+          rgba(0, 0, 0, 0.3) 100%);
+      /* 渐变遮罩 */
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    /* 悬停效果 */
+    .content img:hover,
+    .block img:hover {
+      transform: scale(1.02);
+      /* 轻微放大 */
+      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.4);
+      /* 悬停时增强阴影 */
+    }
+
+    .content img:hover::after,
+    .block img:hover::after {
+      opacity: 1;
+      /* 悬停时显示遮罩 */
+    }
+
+    /* 容器 */
+    header,
+    footer {
+      background: rgba(200, 240, 255, 0.7);
+      color: #003366;
+      backdrop-filter: blur(6px);
+      padding: 20px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .header-content {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .logo {
+      height: 60px;
+      width: auto;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    }
+
+
+    header {
+      grid-row: 1;
+    }
+
+    footer {
+      grid-row: 3;
+    }
+
+    main {
+      grid-row: 2;
+      display: grid;
+      grid-template-columns: 3fr 1fr;
+      gap: 15px;
+      padding: 20px;
+    }
+
+    /* 区块样式 */
+    .content {
+
+      background: rgba(255, 255, 255, 0.03);
+      border-radius: 12px;
+      padding: 24px;
+      position: relative;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+      transition: background 0.3s;
+    }
+
+    .content:hover {
+      background: rgba(255, 255, 255, 0.07);
+    }
+
+    .sidebar {
+      display: grid;
+      grid-template-rows: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .block {
+      background: rgba(255, 255, 255, 0.04);
+      border-radius: 12px;
+      display: block;
+      font-size: 1.2rem;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4);
+      padding: 24px;
+      transition: background 0.3s;
+      text-align: center;
+    }
+
+    .block:hover {
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    /* 动画 */
+    .animate-hover:hover {
+      animation: pulse 1s infinite;
+    }
+
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+      }
+
+      50% {
+        transform: scale(1.05);
+      }
+
+      100% {
+        transform: scale(1);
+      }
+    }
+
+    /* 响应式 */
+    @media(max-width: 768px) {
+      main {
+        grid-template-columns: 1fr;
+      }
+
+      .sidebar {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: none;
+      }
+    }
+
+    .content,
+    .block {
+      background: rgba(255, 255, 255, 0.9);
+      /* 白底半透明 */
+      color: #001f3f;
+      /* 深蓝文字 */
+      box-shadow: 0 4px 12px rgba(0, 64, 128, 0.2);
+      /* 蓝色阴影 */
+      border: 1px solid #cceeff;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- 头部: 区域1 -->
+  <header class="animate__animated animate__fadeInDown">
+    <div class="header-content">
+      <img src="image/MiHoYo.svg.png" alt="公司LOGO" class="logo">
+      <h1>我们的愿景：在未来十年打造数十亿人愿意生活在内的虚拟世界</h1>
+    </div>
+  </header>
+
+  <!-- 主体布局 -->
+  <main>
+    <!-- 左侧内容: A -->
+    <section class="content animate__animated animate__fadeInLeft animate-hover">
+      <!-- 图片示例 -->
+      <img src="image/123.png" alt="AI 科技示例图" width="1000" />
+      <h2>游戏介绍</h2>
+      <p>
+        《原神》是由米哈游自主研发的一款全新开放世界冒险游戏。游戏发生在一个被称作「提瓦特」的幻想世界，在这里，被神选中的人将被授予「神之眼」，导引元素之力。你将扮演一位名为「旅行者」的神秘角色，在自由的旅行中邂逅性格各异、能力独特的同伴们，和他们一起击败强敌，找回失散的亲人——同时，逐步发掘「原神」的真相。
+      </p>
+    </section>
+
+    <!-- 右侧侧边栏: B1, B2 -->
+    <aside class="sidebar">
+      <div class="block animate__animated animate__fadeInUp animate-hover">
+        <img src="image/images.jpg" alt="B1 图示" />
+        <h3>崩坏3</h3>
+        <p>《崩坏3》是米哈游自研的一款科幻冒险动作游戏。3D全视角卡通渲染、自由跳跃的立体战斗，无限可能的分支连招，酣畅淋漓的超强打击感……打造次世代动作游戏！</p>
+      </div>
+      <div class="block animate__animated animate__fadeInUp animate__delay-1s animate-hover">
+        <img src="image/wow.png" alt="B2 图示" />
+        <h3>崩坏：星穹铁道</h3>
+        <p>
+          《崩坏：星穹铁道》是由米哈游自主研发的一款全新回合制游戏。游戏发生在一个「星神」所创造的宇宙，在这里，他们创造现实磨削星辰，在无数【世界】留下他们痕迹。你将扮演一位特殊的旅客，与继承【开拓】意识的伙伴们一起，乘坐星空列车穿越银河，探索新的文明。
+        </p>
+      </div>
+    </aside>
+  </main>
+
+  <!-- 底部: 区域2 -->
+  <footer class="animate__animated animate__fadeInUp">
+    <h1>最终解释权归朗东成所有OvO~</h1>
+  </footer>
+
+  <!-- 交互脚本 -->
+  <script src="D:\Desktop\OHO\HTML\JS\5.29Class朗东成\js\anime.min.js"></script>
+  <script>
+    // 鼠标悬停放大效果
+    document.querySelectorAll('.animate-hover').forEach(el => {
+      el.addEventListener('mouseenter', () => anime({ targets: el, scale: 1.02, duration: 300 }));
+      el.addEventListener('mouseleave', () => anime({ targets: el, scale: 1, duration: 300 }));
+    });
+
+    // 滚动触发动画
+    window.addEventListener('scroll', () => {
+      document.querySelectorAll('.animate__animated').forEach(el => {
+        const rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 50) el.classList.add('animate__zoomIn');
+      });
+    });
+  </script>
+</body>
+
+</html>

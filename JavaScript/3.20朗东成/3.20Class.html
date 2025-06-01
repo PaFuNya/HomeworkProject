@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+        <style>
+        .colored-text {
+            color: pink;
+            font-size: 30px;
+        }
+    </style>
+</head>
+<body>
+<p>为什么要使用函数</p>
+<p>功能类似的代码可以重复使用，此时就可以使用函数</p>
+<p>就是一把一个或多个功能代码封装起来，需要时进行调用的模块</p>
+<p>函数的使用氛围函数声明和调用</p>
+<p>声明函数function 函数名(){函数体}</p>
+<p>直接使用函数名调用</p>
+<p>函数的参数</p>
+<p>函数参数氛围形参和实参</p>
+<p>声明函数时定义的函数叫形参</p>
+<p>调用函数时定义的函数叫实参</p>
+<br>
+<p>利用函数反转数组元素顺序color［'red'，'green'，'orange'，'pink'］.输出到网页上[pink,orange,green,red] 并搭配相应的颜色，字号为30</p>
+<script>
+    var color=['red','green','orange','pink']
+    function sort(arr){
+        var newArr=[]
+        for (var i=arr.length-1;i>=0;i--){
+            newArr[newArr.length]=arr[i]
+        }
+        return newArr
+    }
+    var color2=sort(color)
+   for (var i = 0; i < color2.length; i++) {
+        var curr=color2[i];
+        var span="<span style='color:"+curr+";font-size:30px;'>"+curr+"</span>";
+        document.write(span);
+    }
+</script>
+
+
+
+
+
+
+
+
+
+
+<!--    <script>-->
+<!--        function sum(n){-->
+<!--            var s=0-->
+<!--            for(var i=0;i<=n;i++){-->
+<!--                s+=i-->
+<!--            }-->
+<!--            return s-->
+<!--        }-->
+<!--        document.write(sum(100))-->
+<!--    </script>-->
+<!--<br>-->
+<!--<p>第一题</p>-->
+<!--    <script>-->
+<!--        a=+prompt("第一个数")-->
+<!--        b=+prompt("第一个数")-->
+<!--        document.write(add(a,b))-->
+<!--        function add(a,b){-->
+<!--            return a+b;-->
+<!--        }-->
+<!--    </script>-->
+<!--<br>-->
+<!--<p>第二题</p>-->
+<!--<script>-->
+<!--    function nan (c,d){-->
+<!--        let a-->
+<!--        let b-->
+<!--        while (true) {-->
+<!--            a = +prompt("请输入第二个数字:")-->
+<!--            b = +prompt("请输入第二个数字:")-->
+<!--            if (!isNaN(a) && a > 0 || !isNaN(b) && b > 0) {-->
+<!--                document.write("用户输入的" + a + " " + b + "是数字")-->
+<!--                break-->
+<!--            } else {-->
+<!--                alert("好好想想f你输了个啥")-->
+<!--            }-->
+<!--        }-->
+<!--    }-->
+<!--</script>-->
+<!--<br>-->
+<!--<p>第三题</p>-->
+<!--<script>-->
+<!--    a=+prompt("请输入三个数字：")-->
+<!--    function factorial(a){-->
+<!--        var sum=0-->
+<!--        for(var i=1;i<=a;i++){-->
+<!--            sum+=i;-->
+<!--        }-->
+<!--        return sum-->
+<!--    }-->
+<!--    document.write(factorial(a))-->
+<!--</script>-->
+
+</body>
+</html>

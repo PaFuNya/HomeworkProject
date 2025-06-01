@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    #guessNumber{
+        width: 400px;
+        height: 200px;
+        background-color: aqua;
+        color: blue;
+        text-align: center;
+        font-size: 30px;
+    }
+</style>
+<body>
+    <p>数学对象Math对象用来对数字进行与数学相关的运算，可以直接使用</p>
+    <p>比如你要开根号，求绝对值</p>
+    <script>
+        //Math.sqrt()开根号
+        document.write(Math.sqrt(4))
+        document.write("<br>")
+        //Math.abs()绝对值
+        document.write(Math.abs(-4))
+        document.write("<br>")
+        //Math.pow()幂运算
+        document.write(Math.pow(2, 3)) //2的3次方
+        document.write("<br>")
+        //Math.roung()四舍五入
+        document.write(Math.round(4.5)) //4.5四舍五入为5
+        document.write("<br>")
+        Math.PI //圆周率
+        document.write(Math.PI) //圆周
+    </script>
+    <p>Math.random会产生随机数</p>
+    <script>
+        // document.write(Math.random()) //随机数
+    </script>
+
+
+
+
+
+    <div id="guessNumber">
+        <button onclick="guessNumber()">开始游戏</button>
+        
+    </div>
+<script>
+    var min = parseInt(prompt("请输入最小数字："))
+    var max = parseInt(prompt("请输入最大数字："))
+    function getRandomInt(min, max) {
+        return Math.floor(Math.random() * (max - min + 1) + min);
+    }
+    var randomNum = getRandomInt(min, max);
+    var maxAttempts = 5
+    var attempts = 0
+    function guessNumber() {
+        attempts++
+        if(attempts > maxAttempts) {
+            document.write("游戏结束！正确答案是：" + randomNum);
+            return
+        }
+        var guess = prompt("第" + attempts + "次尝试，请输入你猜的数字（" + min + "-" + max + "），输入q退出：")
+        if(guess === 'q') {
+            document.write("你退出了游戏，正确答案是：" + randomNum)
+            return
+        }
+        guess = parseInt(guess)
+        if(isNaN(guess)) {
+            alert("请输入有效数字！")
+            guessNumber()
+            return
+        }
+        if(guess === randomNum) {
+            document.write("恭喜你猜对了！用了" + attempts + "次尝试。")
+        } else {
+            alert(guess < randomNum ? "猜小了！" : "猜大了！")
+            guessNumber()
+        }
+    }
+</script>   
+</body>
+</html>

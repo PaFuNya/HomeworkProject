@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>元素可是去client</title>
+        <link rel="stylesheet" href="../css/style.css">
+        <script src="../js/jquery-3.6.0.min.js"></script>
+        <script src="../js/offset.js"></script>
+        <style>
+            #box{
+                background-color: pink;
+                width:250px;
+                height:250px;
+                position:absolute;
+                top:100px;
+                left:50px;
+            }
+        </style>
+    </head>
+    <body>
+        <h3>元素可视区Client</h3>
+        <p>主要获取元素边框大小，元素大小</p>
+        <div id="box">
+            我是内容我是内容
+            <script>
+                var box=document.querySelector("#box");
+                console.log(box.clientWidth); //获取元素的宽度
+                console.log(box.clientHeight); //获取元素的高度
+                console.log(box.clientTop);//获取该元素上边框大小
+                console.log(box.clientLeft);//获取该元素左边框大小
+            </script>
+        </div>
+    </body>

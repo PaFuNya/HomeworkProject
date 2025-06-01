@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5.15Class第一章</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        div{
+            width: 800px;
+            height: 300px;
+            background-color: blue;
+            font-size: 16px;
+            transition: 0.5s;
+            color: white;
+            border-radius: 15px;
+        }
+        .one{
+            width: 900px;
+            height: 400px;
+            background-color: blue;
+            font-size: 16px;
+            transition: 0.5s;
+            color: white;
+            border-radius: 15px;
+            
+        }
+        .two{
+            width: 800px;
+            height: 300px;
+            background-color: red;
+            font-size: 30px;
+            transition: 0.5s;
+            color: white;
+            border-radius: 90%;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h3>浏览器对象模型BOM</h3>
+    <P>核心对象window，包括document，location，navigator，screen，history子对象</P>
+    <p>window.onload加载事件，网页加载完后发生</p>
+    <p>window.onresize窗口调整事件，调整窗口大小时发生</p>
+    <p>练习，画一个900*400大小的长方形，当窗口小于800时长方形变成蓝色，否则变红色</p>
+    <div>你看再看看你的后面呢</div>
+            <script>
+            var div=document.querySelector("div")
+            window.onresize=function(){
+                if(window.innerWidth<800){
+                    div.className="two"
+                    div.innerHTML="那你在看看你的后面呢🤣"
+                }else{
+                    div.className="one"
+                    div.innerHTML="你看再看看你的后面呢🤓"
+                }
+            }
+        </script>
+</body>
+</html>

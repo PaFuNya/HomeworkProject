@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h3>日期对象主要用处理日期和时间，使用new date（）进行实例化</h3>
+    <p>方式一，没有参数，获取当前时间</p>
+    <script>
+        var date1=new Date()
+        document.write(date1);
+    </script>
+    <p>方式二，传入年，月，日时，分，秒，指定时间</p>
+    <script>
+        var date1=new Date(2025,4,30)
+        document.write(date1)
+    </script>
+    <p>方式三，利用字符串指定时间</p>
+    <script>
+        var date3=new Date("2025-05-30 12:00:00")
+        document.write(date3)
+    </script>
+    <p>练习一，打开网页时，弹窗显示“您好,今天是***年*月*日星期*，欢迎访问’</p>
+    <script>
+        var date=new Date()
+        var y=date.getFullYear()
+        var month=date.getMonth()
+        var day=date.getDate()
+        var week=date.getDay()
+        weekArr=["日","一","二","三","四","五","六"]
+        week=weekArr[week]
+        alert("您好,今天是"+y+"年"+month+"月"+day+"日星期"+week+",欢迎访问!")
+    </script>
+    <p>练习2，在网页上显示动态时间10：23：00</p>
+    <span id="time" style="color: brown;font-size: 30px;"></span>
+    <script>
+        setInterval(() => {
+            var date=new Date()
+            var hour=date.getHours()
+            var minute=date.getMinutes()
+            var second=date.getSeconds()
+            hour=hour<10?"0"+hour:hour.toString()
+            minute=minute<10?"0"+minute:minute.toString()
+            second=second<10?"0"+second:second.toString()
+            //下面是复杂化写法
+            // if(hour < 10) {
+            //     hour = "0" + hour;
+            // } else {
+            //     hour = hour.toString();
+            // }
+            // if(minute<10){
+            //     minute="0"+minute
+            // }else{
+            //     minute=minute.toString
+            // }
+            // if(second<10){
+            //     second="0"+second
+            // }else{
+            //     second=second.toString()
+            // }
+            document.getElementById("time").innerHTML=hour+":"+minute+":"+second
+        }, 1000); //每1秒执行一次
+    </script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5.115Class第二章</title>
+    <link rel="stylesheet" href="../css/5.115Class.css">
+    <link rel="stylesheet" href="../css/5.115Class%E7%AC%AC%E4%BA%8C%E7%AB%A0.css">
+    <title>5.115Class第二章</title>
+    <style>
+        div{
+            background-color: orange;
+            color:white;
+            font-size:40px;
+            text-align: center;
+            width: 500px;
+        }
+        .two{
+            display: none;
+            color:white;
+            font-size:40px;
+            text-align: center;
+            width: 500px;
+        }
+    </style>
+    <body>
+        <p>定时器</p>
+        <p>setTimeout(),指定时间后执行，执行一次</p>
+        <p>setInterval(),指定时间后执行，重复执行</p>
+        <div>卖手机！上转转APP！！！</div>
+        <script>
+            setTimeout(function(){
+                div=document.querySelector("div")
+                div.style.display="none";
+            }, 3000);
+        </script>
+<p>练习2.每隔1秒闪烁广告,每次闪烁时改变不同的颜色</p>
+<div id="ad">瓜子二手车，更靠谱！</div>
+        <script> 
+        setInterval(function(){
+            div=document.querySelector("#ad")
+            if(div.style.display=="none"){
+                div.style.display="block"; 
+                div.style.colorRandom=Math.floor(Math.random()*255);
+                div.style.backgroundColor="rgb("+Math.floor(Math.random()*255)+","+Math.floor(Math.random()*255)+","+Math.floor(Math.random()*255)+")";
+            }else{
+                div.style.display="none";
+            }
+        },100);
+        </script>
+    </body>
+</head>

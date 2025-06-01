@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        #span1, #span2 {
+            display: block;
+            transition: all 0.5s;
+            width: 200px;
+            height: 200px;
+            margin: 30px;
+            border: 2px solid #000;
+        }
+        #span1 {
+            background-color: orange;
+            position: absolute;
+            left: 300px;
+        }
+        #span2 {
+            background-color: rgb(105, 200, 238);
+            display: none;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <h3>jquery是一个快速，简洁的JavaScript库，其设计宗旨是用更少的代码，做更多的事情</h3>
+    <p>jquery语法由二部分构成：选择器，动作</p>
+    <p>使用步骤</p>
+    <p>第一步，引入库文件</p>
+    <p>第二步，使用库</p>
+    <div id="span1"></div>
+    <div id="span2"></div>
+    <script>
+        $(function(){
+            $("#span1").click(function(){
+                $(this).stop(true, true).fadeOut(500);
+                $("#span2").stop(true, true).fadeIn(500);
+            });
+            $("#span2").click(function(){
+                $(this).stop(true, true).fadeOut(500);
+                $("#span1").stop(true, true).fadeIn(500);
+            });
+        });
+    </script>
+</body>
+</html>

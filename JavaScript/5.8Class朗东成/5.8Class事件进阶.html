@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5.8Class事件进阶</title>
+    <link rel="stylesheet" href="../../css/style.css">
+    <style>
+        p {
+            transition: color 0.3s ease, font-size 0.3s ease;
+            }
+    </style>
+</head>
+    <body>
+        <p>事件注册方式，传统方式和监听方式</p>
+        <p>传统方式</p>
+        <p>点击我会变色</p>
+        <p>我也是可以点击的</p>
+        <script>
+            var p = document.querySelectorAll("p");
+            // for(var i = 0; i < ps.length; i++) {
+            //     ps[i].onclick = function() {
+            //         if(this.style.color === "red") {
+            //             this.style.color = "black";
+            //             this.style.fontSize = "30px";
+            //         } else {
+            //             this.style.color = "red";
+            //             this.style.fontSize = "20px";
+            //         }
+            //     }
+            // }
+            p.onclick=function(){
+                alert("hello world")
+            }
+            p.onclick=function(){
+                alert("hello2")
+            }
+            p.onclick=null
+        </script>
+
+        <p>事件监听方式</p>
+        <script>
+            //要求点击第一段内容，该字体变为红色
+            var p=document.quertSelectorAll("p")
+            p[2].addEventListener('click',function(){
+                this.style.color='red'
+            })
+            var test=function(){
+                alert("hello2")
+            }
+            p[2].addEventListener('click',test)
+            p.removeEventListener("click",test)
+        </script>
+        <p>常见的事件</p>
+        <p>鼠标事件</p>
+        <p>oncick.onmouseover,onmouseout,onfocus等</p>
+        <p>键盘事件</p>
+        <p>keyup.keydown,keypress</p>
+        <script>
+            //禁止鼠标右击
+            document.addEventListener('contextmenu',function(e){
+                e.preventDefault()
+                alert("禁止右击")
+            })
+            //禁止选定文本
+            document.addEventListener("selectstart",function(e){
+                e.preventDefault()
+                alert("禁止选定文本")
+            })
+            //检测键盘
+            var search=document.querySelector("input")
+            document.addEventListener("keyup",function(e){
+                if(e.keyCode===13){
+                    alert("你按下了回车键")
+                }
+            })
+        </script>
+    </body>
+</html>

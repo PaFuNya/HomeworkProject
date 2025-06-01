@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <body>
+        <p>字符串对象</p>
+        <p>根据字符串返回位置inidexOf()</p>
+        <script>
+            let str="hello world"
+            document.write(str.indexOf("o"))
+            document.write("<br>")
+            document.write(str.indexOf("o",5)) //从第5个位置开始查找
+        </script>
+
+        <p>根据位置返回字符chatAt方法</p>
+        <script>
+            let st="你好，世界"
+            document.write(st.length)
+            document.write("<br>")
+            document.write(st.charAt(4)) //返回第4个位置的字符
+            document.write("<br>")
+            document.write(st.charAt(0)) //返回第0个位置的字符
+        </script>
+
+        <p>其他常用方法</p>
+        <script>
+            //字符串截取方法substr()
+            document.write(st.substr(0,2))
+            //字符串大小写转换方法toUpperCase()和toLowerCase()
+            document.write("<br>")
+            document.write(str.toUpperCase()) //转换为大写
+            document.write("<br>")
+            document.write(str.toLowerCase()) //转换为小写
+            document.write("<br>")
+            //字符串替换方法replace()
+            document.write(st.replace("世界","JavaScript")) //替换第
+        </script>
+    </body>
+</head>
+</html>

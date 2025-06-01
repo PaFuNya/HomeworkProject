@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <body>
+        <p>值类型和引用类型</p>
+        <p>值类型指的是基本数据类型，如数字型，字符串等</p>
+        <p>引用类型指的是复杂数据类型，如对象，数组</p>
+        <script>
+            var a='hello' //值类型
+            var b=a //值类型，复制的是值
+            b='world' //改变b的值，不会影响a的值
+            document.write(a,b) //hello
+
+
+
+            var ob={name:"张三",age:14}
+            var o2=ob //引用类型，复制的是地址
+            o2.name="李四" //改变o2的值，会影响ob的值
+            o2.age=20 //改变o2的值，会影响ob的值
+            document.write("<br>")
+            document.write(ob.name,ob.age) //李四 20
+            document.write("<br>")
+            document.write(o2.name,o2.age) //李四 20
+        </script>
+
+
+
+        <p>利用字符串中对象实现删除字符前后空格的字符</p>
+        <script>
+            var s='  hello world  '
+            document.write(s.trim())
+            document.write("<br>")
+        </script>
+    </body>
+</head>
+</html>

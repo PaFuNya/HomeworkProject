@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5.115Class第二章</title>
+</head>
+<body>
+    <h3>location对象</h3>
+    <p>主要用来操作网址(URL)</p>
+    <p>练习，点击海运学院跳转到海运网页</p>
+    <button id="tz">海运学院</button>
+    <button id="refresh">刷新</button>
+    <script>
+        var btn=document.querySelector("#tz")
+        btn.addEventListener("click",function(){
+            location.href="https://www.zimc.cn/"
+        })
+        var btn2=document.querySelector("#refresh")
+        btn2.addEventListener("click",function(){
+            location.reload()
+        })
+    </script>
+    <h3>navigator对象</h3>
+    <p>主要用来获取不同浏览器的信息</p>
+    <h3>history对象</h3>
+    <p>主要用来操作历史网址记录</p>
+    <p>主要用来操作历史网址（url）记录，如前一个url，后一个url，指定url等</p>
+    <h3>练习，编写程序，实现电子时钟自动走动的效果，并提供一个按钮控制电子时钟是否停止运动</h3>
+    <div id="clock"></div>
+    <button id="stop">停止</button>
+    <button id="start">开始</button>
+    <script>
+        var clock=document.querySelector("#clock")
+        var stopBtn=document.querySelector("#stop")
+        var startBtn=document.querySelector("#start")
+        var timer
+        function startClock(){
+            timer=setInterval(function(){
+                clock.innerHTML=new Date()
+            },1000)
+        }
+        function stopClock(){
+            clearInterval(timer)
+        }
+        startBtn.addEventListener("click",startClock)
+        stopBtn.addEventListener("click",stopClock)
+    </script>
+</body>
+</html>

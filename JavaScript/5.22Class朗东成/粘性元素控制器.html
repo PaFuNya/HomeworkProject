@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            height: 2000px;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        .header {
+            height: 100px;
+            background-color: #333;
+            color: white;
+            text-align: center;
+            line-height: 100px;
+        }
+        .content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .sticky-element {
+            width: 200px;
+            height: 100px;
+            background-color: coral;
+            margin: 20px auto;
+            text-align: center;
+            line-height: 100px;
+            transition: all 0.3s;
+        }
+        .sticky-element.fixed {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: lightblue;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+        .status {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(0,0,0,0.7);
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">页面标题</div>
+    <div class="content">
+        <p>向下滚动查看粘性元素效果...</p>
+        <div class="sticky-element" id="stickyElement">粘性元素</div>
+        <!-- 更多内容 -->
+    </div>
+    <div class="status" id="status">
+        元素状态: 正常
+    </div>
+
+    <script>
+        const stickyElement = document.getElementById('stickyElement');
+        const statusDiv = document.getElementById('status');
+        const stickyOffset = stickyElement.offsetTop;
+        
+        function checkSticky() {
+            if (window.scrollY > stickyOffset) {
+                stickyElement.classList.add('fixed');
+                statusDiv.textContent = '元素状态: 固定';
+            } else {
+                stickyElement.classList.remove('fixed');
+                statusDiv.textContent = '元素状态: 正常';
+            }
+        }
+        
+        window.addEventListener('scroll', checkSticky);
+        window.addEventListener('resize', checkSticky);
+        
+        checkSticky();
+    </script>
+</body>
+</html>

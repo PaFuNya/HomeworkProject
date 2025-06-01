@@ -1,0 +1,26 @@
+<html>
+    <head>
+        <style>
+        </style>
+    </head>
+    <body>
+        <h3>节点基础，网页中所有的内容都是节点</h3>
+        <p>根节点、父节点、子节点、兄弟节点</p>
+        <div class="demo">
+            <div class="box">
+                
+                <span class="child">span元素</span>
+                
+                <span class="child">span元素</span>
+                <span class="child">span元素</span>
+            </div>
+        </div>
+        <script>
+            var box=document.querySelector('.box')
+            //父节点
+            console.log(box.parentNOde)//获取父节点
+            //子节点
+            console.log(box.childNodex)//获取子节点
+        </script>
+    </body>
+</html>

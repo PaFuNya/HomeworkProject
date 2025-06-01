@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            height: 2000px;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        .section {
+            height: 500px;
+            margin: 20px 0;
+            padding: 20px;
+            background-color: #f0f0f0;
+            border: 1px solid #ccc;
+            transition: background-color 0.5s;
+        }
+        .status {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background: white;
+            padding: 10px;
+            border: 1px solid #ccc;
+            z-index: 100;
+        }
+    </style>
+</head>
+<body>
+    <div class="status" id="status">
+        当前视口中的区块: 无
+    </div>
+    
+    <div class="section" id="section1">区块1</div>
+    <div class="section" id="section2">区块2</div>
+    <div class="section" id="section3">区块3</div>
+    <div class="section" id="section4">区块4</div>
+
+    <script>
+        const sections = document.querySelectorAll('.section');
+        const statusDiv = document.getElementById('status');
+        
+        function checkVisibility() {
+            let visibleSections = [];
+            
+            sections.forEach(section => {
+                const rect = section.getBoundingClientRect();
+                const isVisible = (
+                    rect.top < window.innerHeight && 
+                    rect.bottom > 0
+                );
+                
+                if (isVisible) {
+                    section.style.backgroundColor = 'lightgreen';
+                    visibleSections.push(section.id);
+                } else {
+                    section.style.backgroundColor = '#f0f0f0';
+                }
+            });
+            
+            if (visibleSections.length > 0) {
+                statusDiv.textContent = `当前视口中的区块: ${visibleSections.join(', ')}`;
+            } else {
+                statusDiv.textContent = '当前视口中的区块: 无';
+            }
+        }
+        
+        window.addEventListener('scroll', checkVisibility);
+        window.addEventListener('resize', checkVisibility);
+        
+        checkVisibility();
+    </script>
+</body>
+</html>

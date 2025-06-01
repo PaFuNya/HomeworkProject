@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p>预解析就是提前把var变量声明和function函数声明进行解析，然后在执行其他代码</p>
+    <script>
+        document.write(sum(1,2)+"<br>")
+        document.write(num+"<br>")
+        var num=10
+        //预解析后执行代码
+        var num
+        document.write(num+"<br>")
+        num=10
+        function sum(a,b){
+            return a+b
+        }
+        var sum2=function (a,b){
+            return a+b
+        }
+        //预解析后执行代码
+        var sum2
+        document.write(sum2(5,2)+"<br>")
+        sum2=function(a,b){
+            return a+b
+        }
+    </script>
+    <script>
+        var a,b
+        (function (){
+            document.write(a+"<br>")
+            document.write(b+"<br>")
+            var a=b=3
+            document.write(a+"<br>")
+            document.write(b+"<br>")
+        })()
+        document.write(a+"<br>");
+        document.write(b+"<br>")
+    </script>
+    <script>
+        var foo=function(x,y){
+            return x-y
+        };
+        function foo(x,y){
+            return x+y
+        };
+        var num=foo(1,2)
+        document.write(num)
+    </script>
+</body>
+</html>

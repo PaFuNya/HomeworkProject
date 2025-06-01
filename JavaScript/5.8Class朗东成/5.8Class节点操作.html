@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5.8Class类的点操作</title>
+</head>
+<body>
+    <p>创建节点createElement()</p>
+    <p>添加节点appendChild()</p>
+    <p>插入节点insertbefore()</p>
+    <p>删除节点removeChile()</p>
+    <h3>简易留言板</h3>
+
+    <textarea id="text" id="text" cols="30" rows="10"></textarea>
+    
+    <br>
+
+    <button>发布</button>
+    <ul>
+
+    </ul>
+    <script>
+        var txt=document.querySelector("textarea")
+        var btn=document.querySelector("button")
+        var ul=document.querySelector("ul")
+        btn.onclick=function(){
+            if(txt.value==""){
+                alert("请输入内容")
+                return false
+            }else{
+                //创建li节点
+                var li=document.createElement("li")
+                //文本框插入到li节点中
+                li.innerHTML=txt.value
+                //将li节点插入到ul节点中
+                ul.appendChild(li)
+                //清空文本框内容
+                txt.value=""
+            }
+        }
+    </script>
+</body>
+</html>

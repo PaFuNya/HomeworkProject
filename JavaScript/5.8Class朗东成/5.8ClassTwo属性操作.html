@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+
+        </style>
+    </head>
+        <body>
+            <h3>属性操作包括自带属性和自定义属性</h3>
+            <div id="demo" index="lll" class="nav"></div>
+
+        <script>
+            //1.获取元素
+            var dem=document.querySelector('#demo')
+
+            //2.获取元素的属性
+            document.write(dem.id)
+            document.write(dem.className)
+            //获取自定义属性
+            document.write(dem.getAttribute('index'))
+
+            //3.设置元素的属性
+            div.className="nav1"
+            //设置自定义属性
+            div.setAttribute('index','123')
+
+            //4.删除元素的属性
+            div.removeAttribute('index')
+        </script>
+        <h3>html15新规定的自定义属性data-*</h3>
+        <div id="demo" data-index="123" class="nav">html15新规定的自定义属性data-</div>
+        <script>
+            var div1=document.querySelector('#demo')
+            console.log(div1.dataset.index)//获取自定义属性
+            div.dataset.index=456//设置自定义属性
+        </script>
+        </body>
+</html>

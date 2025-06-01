@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>循环结构就是实现一段代码重复的执行</p>
+    <p>循环结构有三种</p>  
+    <p>1.for循环</p>
+    <p>2.while循环</p>
+    <p>3.do while循环</p>
+    <p>for循环的语法</p>
+    <p>for(初始化表达式;条件表达式;更新表达式)</p>
+    <!-- <script>
+        var i = 0;  
+        var sum = 0;
+        while (i <= 100) {
+            if (i % 5 == 0) {
+                sum += i;
+            }
+            i++;
+        }
+        document.write("1到100能被5整÷的和是：" + sum);
+    </script> -->
+    <!-- <script>
+        do{
+            if(i%5==0){
+                sum+=i
+            }
+            i++;
+        }while(i<=100);
+        document.write("1到100能被5整÷的和是：" + sum);
+    </script> -->
+    <script>
+        for(var i=1;i<=5;i++){
+            for(var j=1;j<=i;j++){
+                document.write("*");
+            }
+            document.write("<br>");
+        }
+    </script>
+</body>
+</html>
+
+

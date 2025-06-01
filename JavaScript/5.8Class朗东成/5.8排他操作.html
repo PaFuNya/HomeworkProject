@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            ul{
+                list-style:none;
+                padding: 0;
+            }
+            li{
+                margin:8xp 0;
+                cursor: pointer;
+            }
+            ul li{
+                transition:color 0.3s ease,font-size 0.3s ease;
+            }
+        </style>
+    </head>
+    <body>
+        <h3>排他操作（首先）指先排除其他元素的效果，然后设置自身元素的效果</h3>
+        <p>练习，当鼠标经过列表项时，当前表现变色</p>
+        <ul>
+            <li>list1</li>
+            <li>lsit2</li>
+            <li>list3</li>
+            <li>list4</li>
+        </ul>
+        <script>
+            //1.获取所有li元素
+            var lis=document.querySelectorAll("li")
+            //2.遍历所有li元素，给每个li元素添加鼠标经过事件
+            for(i=0;i<lis.length;i++){
+                lis[i].onmouseover=function(){
+                    this.style.color="red"
+                    this.style.fontSize="20px"
+                }
+                lis[i].onmouseout=function(){
+                    this.style.color=""
+                    this.style.fontSize=""
+                }
+            }
+        </script>
+    </body>
+</html>
